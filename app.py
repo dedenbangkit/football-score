@@ -1,11 +1,15 @@
 from flask import Flask, jsonify
 from datetime import datetime
 from selenium import webdriver
+# uncheck the comment above if you run this app without GUI
+# from pyvirtualdisplay import Display
 
 app = Flask(__name__)
 
 @app.route('/<date>')
 def index(date):
+    # display = Display(visible=0, size=(800, 600))
+    # display.start()
     driver = webdriver.Chrome(executable_path='./chromedriver')
     driver.get('http://www.livescore.com/soccer/'+date+'/')
     parents = driver.find_elements_by_xpath('//div[@data-type="container"]/div')
@@ -31,6 +35,7 @@ def index(date):
         else:
             ma.append({'time':dt[0], 'away':dt[1], 'score':dt[2], 'home':dt[3]})
     driver.close()
+    # display.popen.kill()
     return jsonify(data)
 
 if __name__ == '__main__':

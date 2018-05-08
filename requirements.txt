@@ -5,3 +5,4 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 selenium==3.11.0
 Werkzeug==0.11.15
+PyVirtualDisplay==0.2.1

@@ -3,13 +3,36 @@ Livescore Scrape
 
 ## Requirements 
 Download [Chrome WebDriver](http://chromedriver.chromium.org/downloads) and save it in the app directory.
+```
+$ wget https://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip
+$ unzip crhomedriver_linux64.zip
+$ mv crhomedriver ./APP_DIR_PATH
+```
+If you are going to run this app on machine without GUI, you have to install some requirements below
+
+### Centos
+```
+$ sudo yum install google-chrome-stable_current_x86_64.rpm
+$ yum install xorg-X11-server-Xvfb
+```
+### Ubuntu
+```
+$ sudo apt-get install xvfb
+$ sudo apt-get install libxss1 libappindicator1 libindicator7
+$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+$ sudo dpkg -i google-chrome*.deb
+```
+
+Then uncomment all the lines on ```app.py``` to run the app through virtual display.
 
 ## Installation
+
 ```
 $ git clone https://github.com/dedenbangkit/football-score.git
 $ cd football-score
 $ pip install -r requirements.txt
 ```
+
 note: you can also install the requirements to isolated [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 ## Usage
